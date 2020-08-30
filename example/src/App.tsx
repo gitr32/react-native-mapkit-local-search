@@ -6,21 +6,24 @@ import { useState } from 'react';
 export default function App() {
   const [locations, setLocations] = useState<Location[]>([]);
 
-  React.useEffect(() => {
+  const fetchLocationData = async () => {
     const region = {
       latitude: 36.7783,
       longitude: -119.4179,
       latitudeDelta: 0.1,
       longitudeDelta: 0.1,
     };
-    MapkitLocalSearch.searchForLocations('Popeyes', region)
-      .then((result) => {
-        setLocations(result);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+    try {
+      const result = await MapkitLocalSearch.searchForLocations(
+        'Popeyes',
+        region
+      );
+      setLocations(result);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  fetchLocationData();
 
   return (
     <View style={styles.container}>
