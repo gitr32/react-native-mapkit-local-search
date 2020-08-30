@@ -2,7 +2,7 @@
 
 @interface RCT_EXTERN_MODULE(MapkitLocalSearch, NSObject)
 
-RCT_EXTERN_METHOD(multiply:(float)a withB:(float)b
+RCT_EXTERN_METHOD(searchForLocations:(NSString)searchText withRegion:(NSDictionary)region
                  withResolver:(RCTPromiseResolveBlock)resolve
                  withRejecter:(RCTPromiseRejectBlock)reject)
 

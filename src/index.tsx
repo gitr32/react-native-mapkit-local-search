@@ -1,7 +1,21 @@
 import { NativeModules } from 'react-native';
 
+export interface Region {
+  latitude: number;
+  longitude: number;
+  latitudeDelta: number;
+  longitudeDelta: number;
+}
+
+export interface Location {
+  name: string;
+  title: string;
+  longitude: number;
+  latitude: number;
+}
+
 type MapkitLocalSearchType = {
-  multiply(a: number, b: number): Promise<number>;
+  searchForLocations(searchText: string, region: Region): Promise<Location[]>;
 };
 
 const { MapkitLocalSearch } = NativeModules;
