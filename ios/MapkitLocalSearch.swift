@@ -51,6 +51,8 @@ class MapkitLocalSearch: NSObject {
                     formattedLocation["title"] = item.placemark.title
                     formattedLocation["latitude"] = item.placemark.coordinate.latitude
                     formattedLocation["longitude"] = item.placemark.coordinate.longitude
+                    formattedLocation["isoCountryCode"] = item.placemark.isoCountryCode
+                    formattedLocation["country"] = item.placemark.country
                     formattedResponse.append(formattedLocation)
                 }
             }

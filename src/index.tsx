@@ -12,6 +12,8 @@ export interface Location {
   title: string;
   longitude: number;
   latitude: number;
+  isoCountryCode: string;
+  country: string;
 }
 
 type MapkitLocalSearchType = {
